@@ -1,40 +1,43 @@
 var highScore = document.querySelector('.highScore');
 var timer = document.querySelector('.timer');
-var timeCount = document.querySelector('.timeCount');
+var timeText = document.querySelector(".timer .timeLeft");
+var timeCount = document.querySelector('.timer .timeCount');
 var startBtn = document.querySelector('.startBtn button');
-var card = document.querySelector('.card');
+var quizCard = document.querySelector('.quizCard');
 var submitBtn = document.querySelector('#user .btn button')
 var cancelBtn = document.querySelector('.cancel button');
 var restartBtn = document.querySelector('.restart button');
 var resultsBox = document.querySelector(".resultsBox");
 var nextBtn = document.querySelector('footer .nextBtn');
 var bottomQuesCounter = document.querySelector("footer .totalQuestions");
-
+var options = document.querySelector('.options');
+var questions = document.querySelector('.questions');
 
 startBtn.onclick = ()=>{
-    card.classList.add("activeQuiz");
+    quizCard.classList.add("activeQuiz");
     showQuestions(0);
     queCounter(1);
     startTimer(15);
 }
+
 let timeValue =  15;
-let que_count = 0;
-let que_numb = 1;
+let queCount = 0;
+let queNumber = 1;
 let userScore = 0;
 let counter;
 let widthValue = 0;
 
 
 restartBtn.onclick = ()=>{
-    card.classList.add("activeQuiz");
+    quizCard.classList.add("activeQuiz");
     resultsBox.classList.remove("activeResult");
     timeValue = 15; 
-    que_count = 0;
-    que_numb = 1;
+    queCount = 0;
+    queNumber = 1;
     userScore = 0;
     widthValue = 0;
-    showQuestions(que_count);
-    queCounter(que_numb);
+    showQuestions(queCount);
+    queCounter(queNumber);
     clearInterval(counter);
     startTimer(timeValue);
     timeText.textContent = "Time Left";
@@ -46,11 +49,11 @@ cancelBtn.onclick = ()=>{
 }
 
 nextBtn.onclick = ()=>{
-    if(que_count < questions.length - 1){
-        que_count++;
-        que_numb++;
-        showQuestions(que_count);
-        queCounter(que_numb);
+    if(queCount < questions.length - 1){
+        queCount++;
+        queNumber++;
+        showQuestions(queCount);
+        queCounter(queNumber);
         clearInterval(counter);
         startTimer(timeValue);
         startTimerLine(widthValue);
@@ -63,19 +66,15 @@ nextBtn.onclick = ()=>{
 }
 
 function showQuestions(index){
-    var questions = document.querySelector('.questions');
-    
-    let que_tag = '<span>'+ questions[index].numb + ". " + questions[index].question +'</span>';
-    let option_tag = '<div class="option"><span>'+ questions[index].options[0] +'</span></div>'
+    let queTag = '<span>'+ questions[index].number + ". " + questions[index].question +'</span>';
+    let optionsTag = '<div class="option"><span>'+ questions[index].options[0] +'</span></div>'
     + '<div class="option"><span>'+ questions[index].options[1] +'</span></div>'
     + '<div class="option"><span>'+ questions[index].options[2] +'</span></div>'
     + '<div class="option"><span>'+ questions[index].options[3] +'</span></div>'
     + '<div class="option"><span>'+ questions[index].options[4] +'</span></div>'
     + '<div class="option"><span>'+ questions[index].options[5] +'</span></div>';
-    questions.innerHTML = que_tag;
-    option_list.innerHTML = option_tag;
-    
-    var options = document.querySelector('.options');
+    questions.innerHTML = queTag;
+    options.innerHTML = optionsTag;
     
     for(i=0; i < options.length; i++){
         options[i].setAttribute("onclick", "optionSelected(this)");
@@ -86,8 +85,8 @@ function showQuestions(index){
 function optionSelected(answer){
     clearInterval(counter);
     let userAns = answer.textContent;
-    let correctAns = questions[que_count].answer;
-    var allOptions = option_list.children.length;
+    let correctAns = questions[queCount].answer;
+    var allOptions = options.children.length;
     
     if(userAns == correctAns){
         userScore += 1;
@@ -100,23 +99,23 @@ function optionSelected(answer){
         answer.insertAdjacentHTML("beforeend");
         console.log("Wrong Answer");
         for(i=0; i < allOptions; i++){
-            if(option_list.children[i].textContent == correctAns){
-                option_list.children[i].setAttribute("class", "option correct");
-                option_list.children[i].insertAdjacentHTML("beforeend");
+            if(options.children[i].textContent == correctAns){
+                options.children[i].setAttribute("class", "option correct");
+                options.children[i].insertAdjacentHTML("beforeend");
                 console.log("Auto selected correct answer.");
             }
         }
     }
     for(i=0; i < allOptions; i++){
-        option_list.children[i].classList.add("disabled");
+        options.children[i].classList.add("disabled");
     }
     nextBtn.classList.add("show");
 }
 
 function showResult(){
-    card.classList.remove("activeQuiz");
+    quizCard.classList.remove("activeQuiz");
     resultsBox.classList.add("activeResult");
-    var scoreText = resultsBox.querySelector(".score_text");
+    var scoreText = resultsBox.querySelector(".scoreText");
     if (userScore > 3){
         let scoreTag = '<span>and congrats! , You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
         scoreText.innerHTML = scoreTag;
@@ -143,17 +142,17 @@ function startTimer(time){
         if(time < 0){
             clearInterval(counter);
             timeText.textContent = "Out of Time!";
-            const allOptions = option_list.children.length;
-            let correctAns = questions[que_count].answer;
+            const allOptions = options.children.length;
+            let correctAns = questions[queCount].answer;
             for(i=0; i < allOptions; i++){
-                if(option_list.children[i].textContent == correctAns){
-                    option_list.children[i].setAttribute("class", "option correct");
-                    option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag);
+                if(options.children[i].textContent == correctAns){
+                    options.children[i].setAttribute("class", "option correct");
+                    options.children[i].insertAdjacentHTML("beforeend");
                     console.log("Time Off: Auto selected correct answer.");
                 }
             }
             for(i=0; i < allOptions; i++){
-                option_list.children[i].classList.add("disabled");
+                options.children[i].classList.add("disabled");
             }
             nextBtn.classList.add("show");
         }

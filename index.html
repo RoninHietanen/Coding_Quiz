@@ -4,16 +4,21 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="./assets/css/reset.css">
         <link rel="stylesheet" href="./assets/css/style.css">
         <title>Code Quiz</title>
     </head>
 
     <body>
+
+        <div class="startBtn">
+            <button>Start Quiz!</button>
+        </div>
+
         <header>
             <h1 class="heading">Coding Quiz!</h1>
             <h2 class="highScore">High Score:</h2>
             <div class="timer">
+                <div class="timeLeft">Time Left</div>
                 <div class="timerCount"></div>
             </div>
         </header>
@@ -21,11 +26,7 @@
         <br><br>
         <br><br>
 
-        <div class="startBtn">
-            <button>Start!</button>
-        </div>
-
-        <main class="card">
+        <main class="quizCard">
             <section>
                 <div class="questions"></div>
                 <div class="options"></div>
@@ -42,11 +43,13 @@
             <div class="completeText">You've completed the Quiz!</div>
             <div class="scoreText"></div>
             
-            <div class="buttons">
+            <div>
                 <textarea class="userName"></textarea>
                 <button id="user" class="btn" type="submit">Submit</button>
-                <button class="cancel">Cancel</button>
-                <button class="restart">Restart</button>
+                <div class="buttons">
+                    <button class="cancel">Cancel</button>
+                    <button class="restart">Restart</button>
+                </div>
             </div>
         </div>
 

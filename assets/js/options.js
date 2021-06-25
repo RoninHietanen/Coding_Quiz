@@ -1,5 +1,5 @@
 let questions = [
-    {
+        {
         number: 1,
         question: 'What does CSS stand for?',
         answer: 'Cascading Style Sheet',
@@ -11,7 +11,7 @@ let questions = [
             'None of the Above'
         ]
     },
-    {
+        {
         number: 2,
         question: 'What does HTML stand for?',
         answer: 'Hyper Text Markup Language',
@@ -23,7 +23,7 @@ let questions = [
             'None of the Above'
         ]
     },
-    {
+        {
         number: 3,
         question: 'What is the name for the instructions a computer needs to work?',
         answer: 'Program',
@@ -35,7 +35,7 @@ let questions = [
             'None of the Above'
         ]
     },
-    {
+        {
         number: 4,
         question: 'What is a boolean?',
         answer: [
@@ -50,7 +50,7 @@ let questions = [
             'None of the Above'
         ]
     },
-    {
+        {
         number: 5,
         question: 'Which of these is NOT a programming Language?',
         answer: 'Pear',
@@ -62,7 +62,7 @@ let questions = [
             'None of the Above'
         ]
     },
-    {
+        {
         number: 6,
         question: 'What could a computer do without any programming?',
         answer: 'None of the Above',
@@ -74,7 +74,7 @@ let questions = [
             'None of the Above'
         ]
     },
-    {
+        {
         number: 7,
         question: 'Syntax in coding is?',
         answer: 'The way you write the code',
@@ -86,7 +86,7 @@ let questions = [
             'None of the Above'
         ]
     },
-    {
+        {
         number: 8,
         question: 'Which Comparison Operator means compares value and type?',
         answer: '===',
@@ -98,7 +98,7 @@ let questions = [
             'None of the Above'
         ]
     },
-    {
+        {
         number: 9,
         question: 'Which Method adds new items to the beginning of an array?',
         answer: '.unshift()',
@@ -110,7 +110,7 @@ let questions = [
             'None of the Above'
         ]
     },
-    {
+        {
         number: 10,
         question: 'What are Timers/Intervals counted in?',
         answer: 'Milliseconds',
@@ -123,3 +123,16 @@ let questions = [
         ]
     },
 ]
+
+/* {
+    number: 0,
+    question: 'A coding question?',
+    answer: 'Option 1',
+    options: [
+        'Option 1',
+        'Option 2',
+        'Option 3',
+        'Option 4',
+        'Option 5/None of the Above'
+    ]
+}, */

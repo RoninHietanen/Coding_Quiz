@@ -27,6 +27,28 @@ header {
   display: inline;
 }
 
+header .timer .timeLeft{
+  font-weight: bolder;
+  font-size: 26px;
+  user-select: none;
+  margin-top: -20px;
+}
+
+header .timer .timeCount{
+  font-size: 26px;
+  font-weight: bolder;
+  padding: 5px;
+  text-align: center;
+  user-select: none;
+  margin-top: -20px;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 .heading {
   text-align: center;
   background: #f59494;
@@ -58,7 +80,7 @@ header {
   text-decoration: underline;
 }
 
-.startBtn, .card, .resultsBox {
+.startBtn, .quizCard, .resultsBox {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -66,7 +88,7 @@ header {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.card.activeQuiz,
+.quizCard.activeQuiz,
 .resultsBox.activeResult{
   opacity: 1;
   z-index: 5;
@@ -90,7 +112,7 @@ header {
   margin-top: 0.6em;
 }
 
-.card {
+.quizCard {
   background: radial-gradient(circle, rgb(214, 101, 171) 0%, rgba(175, 41, 115, 0.604)100%);
   border: 1px solid #eebcbc;
   border-radius: 8px;
@@ -113,7 +135,7 @@ section .questions{
   text-align: center;
 }
 
-section .options{
+section .optionsList .options{
   padding: 20px 0px;
   display: block;
   background: radial-gradient(circle, rgb(141, 101, 214) 0%, rgba(132, 41, 175, 0.604)100%);
@@ -124,20 +146,20 @@ section .options{
   flex: 0 auto;
 }
 
-section .option:last-child{
+section .optionsList .option:last-child{
   margin-bottom: 0px;
 }
-section .option:hover{
+section .optionsList .option:hover{
   color: #004085;
   background: #cce5ff;
   border: 1px solid #b8daff;
 }
-section .option.correct{
+section .optionsList .option.correct{
   color: #155724;
   background: #d4edda;
   border: 1px solid #c3e6cb;
 }
-section .option.incorrect{
+section .optionsList .option.incorrect{
   color: #721c24;
   background: #f8d7da;
   border: 1px solid #f5c6cb;
@@ -265,26 +287,4 @@ footer button.show{
 .buttons button.btn:hover{
   color: rgb(187, 0, 178);
   background: #ca0202;
-}
-
-main {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-@media screen and (max-width: 504px) {
-  .large-font {
-    font-size: 2em;
-  }
-  
-  .reset-button {
-    font-size: 12px;
-    width: 20px;
-      
-  }
-  
-  .timer {
-    height: 200px;
-  }
 }
