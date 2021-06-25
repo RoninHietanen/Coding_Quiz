@@ -9,10 +9,26 @@ var timeLine = document.querySelector("header .time_line");
 var timeText = document.querySelector(".timer .time_left_txt");
 var timeCount = document.querySelector(".timer .timer_sec");
 var highScore = document.querySelector(".highscore")
+var restartQuiz = result_box.querySelector(".buttons .restart");
+var quitQuiz = result_box.querySelector(".buttons .quit");
+var nextBtn = document.querySelector("footer .next_btn");
+var bottomQuesCounter = document.querySelector("footer .total_que");
+var input_textarea = document.querySelector('.content_input');
+
+let timeValue =  10;
+let queCount = 0;
+let queNumber = 1;
+let userScore = 0;
+let counter;
+let counterLine;
+let widthValue = 0;
+let tickIconTag = '<div class="icon tick"><i class="fas fa-check"></i></div>';
+let crossIconTag = '<div class="icon cross"><i class="fas fa-times"></i></div>';
 
 startBtn.onclick = ()=> {
     info_box.classList.add("activeInfo");
     getHighScore();
+    getUserName();
 }
 
 exitBtn.onclick = ()=> {
@@ -27,17 +43,6 @@ continueBtn.onclick = ()=> {
     startTimer(15);
     startTimerLine(0);
 }
-
-let timeValue =  10;
-let queCount = 0;
-let queNumber = 1;
-let userScore = 0;
-let counter;
-let counterLine;
-let widthValue = 0;
-
-var restartQuiz = result_box.querySelector(".buttons .restart");
-var quitQuiz = result_box.querySelector(".buttons .quit");
 
 restartQuiz.onclick = ()=> {
     quiz_box.classList.add("activeQuiz");
@@ -60,9 +65,6 @@ restartQuiz.onclick = ()=> {
 quitQuiz.onclick = ()=> {
     window.location.reload();
 }
-
-var nextBtn = document.querySelector("footer .next_btn");
-var bottomQuesCounter = document.querySelector("footer .total_que");
 
 nextBtn.onclick = ()=> {
     if(queCount < questions.length - 1){
@@ -101,9 +103,6 @@ function showQuestions(index) {
         option[i].setAttribute("onclick", "optionSelected(this)");
     }
 }
-
-let tickIconTag = '<div class="icon tick"><i class="fas fa-check"></i></div>';
-let crossIconTag = '<div class="icon cross"><i class="fas fa-times"></i></div>';
 
 function optionSelected(answer) {
     clearInterval(counter);
@@ -146,6 +145,7 @@ function showResult() {
         scoreText.innerHTML = scoreTag;
     }
     setHighScore()
+    setUserName()
 }
 
 function startTimer(time) {
@@ -206,5 +206,22 @@ function getHighScore() {
         highScore.textContent = storedHighScore;
     } else {
         userScore = storedHighScore;
+    }
+}
+
+function setUserName() {
+    storedUserName.textContent = input_textarea.value;
+    localStorage.setItem('username', input_textarea.value);
+}
+
+function getUserName() {
+    var storedUserName = localStorage.getItem("username");
+    
+    if (storedUserName === null) {
+        username = 0;
+    } else if (storedUserName > username) {
+        username.textContent = storedUserName;
+    } else {
+        username = storedUserName;
     }
 }
