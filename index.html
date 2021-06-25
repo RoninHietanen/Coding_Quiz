@@ -10,8 +10,48 @@
     </head>
 
     <body>
+        <header>
+            <h1 class="heading">Coding Quiz!</h1>
+            <h2 class="highScore">High Score:</h2>
+            <div class="timer">
+                <div class="timerCount"></div>
+            </div>
+        </header>
 
-       <script src="./assets/js/script.js"></script>
+        <br><br>
+        <br><br>
+
+        <div class="startBtn">
+            <button>Start!</button>
+        </div>
+
+        <main class="card">
+            <section>
+                <div class="questions"></div>
+                <div class="options"></div>
+            </section>
+
+            <footer>
+                <div class="totalQuestions"></div>
+                <button class="nextBtn">Next Que</button>
+            </footer>
+
+        </main>
+
+        <div class="resultsBox">
+            <div class="completeText">You've completed the Quiz!</div>
+            <div class="scoreText"></div>
+            
+            <div class="buttons">
+                <textarea class="userName"></textarea>
+                <button id="user" class="btn" type="submit">Submit</button>
+                <button class="cancel">Cancel</button>
+                <button class="restart">Restart</button>
+            </div>
+        </div>
+
+        <script src="./assets/js/options.js"></script>
+        <script src="./assets/js/script.js"></script>
 
     </body>
 
