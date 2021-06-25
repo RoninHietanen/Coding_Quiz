@@ -38,12 +38,9 @@ let questions = [
         {
         number: 4,
         question: 'What is a boolean?',
-        answer: [
-            'True or False',
-            'Primitive Value'
-        ],
+        answer: 'True or False',
         options: [
-            'Primitive Value',
+            'Number',
             'Strings',
             'True or False',
             'An Operator',
@@ -53,9 +50,9 @@ let questions = [
         {
         number: 5,
         question: 'Which of these is NOT a programming Language?',
-        answer: 'Pear',
+        answer: 'Grapefruit',
         options: [
-            'Pear',
+            'Grapefruit',
             'JavaScript',
             'CSS',
             'HTML',

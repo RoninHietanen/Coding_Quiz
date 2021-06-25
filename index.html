@@ -1,61 +1,67 @@
 <!DOCTYPE html>
 <html lang="en-us">
-
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./assets/css/style.css">
-        <title>Code Quiz</title>
+        <title>Coding Quiz</title>
     </head>
-
     <body>
-
-        <div class="startBtn">
-            <button>Start Quiz!</button>
+        
+        <div>
+            <h1 class="title">Highscore: <span class="highscore">0 </span></h1>
         </div>
-
-        <header>
-            <h1 class="heading">Coding Quiz!</h1>
-            <h2 class="highScore">High Score:</h2>
-            <div class="timer">
-                <div class="timeLeft">Time Left</div>
-                <div class="timerCount"></div>
+        
+        <div class="startBtn"><button>Start Quiz</button></div>
+        
+        <div class="info_box">
+            <div class="info-title"><span>How this Quiz works</span></div>
+            <div class="info-list">
+                <div class="info">1. You will have only 10 seconds per each question.</div>
+                <div class="info">2. Once you select your answer and it can't be undone.</div>
+                <div class="info">4. You can't exit from the Quiz while you're playing.</div>
             </div>
-        </header>
-
-        <br><br>
-        <br><br>
-
-        <main class="quizCard">
-            <section>
-                <div class="questions"></div>
-                <div class="options"></div>
-            </section>
-
-            <footer>
-                <div class="totalQuestions"></div>
-                <button class="nextBtn">Next Que</button>
-            </footer>
-
-        </main>
-
-        <div class="resultsBox">
-            <div class="completeText">You've completed the Quiz!</div>
-            <div class="scoreText"></div>
-            
-            <div>
-                <textarea class="userName"></textarea>
-                <button id="user" class="btn" type="submit">Submit</button>
-                <div class="buttons">
-                    <button class="cancel">Cancel</button>
-                    <button class="restart">Restart</button>
+           <div class="buttons">
+                <button class="quit">Exit Quiz</button>
+                <button class="restart">Continue</button>
+            </div>
+        </div>
+        
+        <div class="quiz_box">
+            <header>
+                <div class="title">Coding Quiz</div>
+                <div class="timer">
+                    <div class="time_left_txt">Time Left</div>
+                    <div class="timer_sec">15</div>
                 </div>
+                <div class="time_line"></div>
+            </header> 
+            <section>
+                <div class="que_text"></div>
+                <div class="option_list"></div>
+            </section>
+            
+            <footer>
+                <div class="total_que"></div>
+                <button class="next_btn">Next Question</button>
+            </footer>
+        </div> 
+        
+        <div class="result_box">
+            <div class="icon">
+                <i class="fas fa-crown"></i>
+            </div>
+            <div class="complete_text">You've completed the Quiz!</div>
+            <div class="score_text"></div>
+            <div class="buttons">
+                <button class="restart">Replay Quiz</button>
+                <button class="quit">Quit Quiz</button>
             </div>
         </div>
-
+        
         <script src="./assets/js/options.js"></script>
+        
         <script src="./assets/js/script.js"></script>
-
     </body>
-
 </html>

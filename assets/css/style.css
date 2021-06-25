@@ -1,86 +1,41 @@
+:root {
+  --back: rgba(187, 0, 0, 0.822);
+  --back2: rgba(146, 0, 0, 0.856);
+  --back3: rgba(224, 73, 3, 0.863);
+  --text: rgba(230, 122, 0, 0.877);
+}
+
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
-  color: rgb(32, 0, 0);
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-  background-color: #8b2e2e;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  justify-content: flex-start;
+  font-family: 'Inconsolata', monospace;
+  background: var(--back);
 }
 
 ::selection {
-  color: rgb(247, 225, 225);
-  background: rgb(85, 1, 57);
+  color: var(--text);
+  background: var(--back);
 }
 
-header {
-  padding: 40px;
-  text-align: center;
-  background: #f59494;
-  border-bottom:30px #927474;
-  display: inline;
-}
-
-header .timer .timeLeft {
-  font-weight: bolder;
-  font-size: 26px;
-  user-select: none;
-  margin-top: -20px;
-}
-
-header .timer .timeCount {
-  font-size: 26px;
-  font-weight: bolder;
-  padding: 5px;
-  text-align: center;
-  user-select: none;
-  margin-top: -20px;
-}
-
-main {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.heading {
-  text-align: center;
-  background: #f59494;
-  text-decoration: underline;
-  font-size: 40px;
-  font-weight: bolder;
-}
-
-.timer {
+.highscore {
+  color: var(--text);
   padding: 10px;
-  text-align: right;
-  background: #f59494;
+  margin: 10px;
 }
 
-.timerCount {
+.title {
+  color: var(--text);
   padding: 10px;
-  height: 10px;
-  margin-top: -30px;
-  font-weight: bolder;
-  font-size: 28px;
-  background: #f59494;
+  margin: 10px;
+  background: var(--back2);
 }
 
-.highScore {
-  text-align: left;
-  height: 10px;
-  padding: 10px;
-  background: #f59494;
-  text-decoration: underline;
-}
-
-.startBtn, .quizCard, .resultsBox {
+.startBtn, .info_box, .quiz_box, .result_box {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -88,8 +43,7 @@ main {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.quizCard.activeQuiz,
-.resultsBox.activeResult {
+.info_box.activeInfo, .quiz_box.activeQuiz, .result_box.activeResult {
   opacity: 1;
   z-index: 5;
   pointer-events: auto;
@@ -97,75 +51,217 @@ main {
 }
 
 .startBtn button {
-  background: radial-gradient(circle, rgb(197, 135, 182) 0%, rgba(155, 45, 113, 0.954) 100%);
-  border-radius: 8px;
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--text);
+  padding: 15px 30px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background: var(--back2);
   cursor: pointer;
-  font-size: 2em;
-  letter-spacing: 0.21px;
-  line-height: 16px;
-  max-width: 255px;
-  padding: 20px 52px;
-  text-align: center;
-  transition-duration: 0.15s;
-  transition-property: background-color;
-  transition-timing-function: linear;
-  margin-top: 0.6em;
 }
 
-.quizCard {
-  background: radial-gradient(circle, rgb(214, 101, 171) 0%, rgba(175, 41, 115, 0.604)100%);
-  border: 1px solid #eebcbc;
-  border-radius: 8px;
-  box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0, rgba(60, 64, 67, 0.15) 0 2px 4px 3px;
-  margin: auto;
-  flex: 0 auto;
-  padding: 8px;
-  margin-top: 50px;
+.info_box {
+  width: 540px;
+  background: var(--back);
+  border-radius: 5px;
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0;
   pointer-events: none;
   transition: all 0.3s ease;
 }
 
+.info_box .info-title {
+  height: 60px;
+  width: 100%;
+  border-bottom: 1px solid white;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  border-radius: 5px 5px 0 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.info_box .info-list {
+  padding: 15px 30px;
+}
+
+.info_box .info-list .info {
+  margin: 5px 0;
+  font-size: 17px;
+}
+
+.info_box .buttons {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 30px;
+  border-top: 1px solid white;
+}
+
+.info_box .buttons button {
+  margin: 0 5px;
+  height: 40px;
+  width: 100px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid var(--back2);
+  transition: all 0.3s ease;
+}
+
+.quiz_box {
+  width: 550px;
+  background: var(--back3);;
+  border-radius: 5px;
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.quiz_box header {
+  position: relative;
+  z-index: 2;
+  height: 70px;
+  padding: 0 30px;
+  background: var(--back3);;
+  border-radius: 5px 5px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+}
+
+.quiz_box header .title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.quiz_box header .timer {
+  color: var(--text);
+  background: var(--back2);
+  border: 1px solid #ffb8b8;
+  height: 45px;
+  padding: 0 8px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 145px;
+}
+
+.quiz_box header .timer .time_left_txt {
+  font-weight: 400;
+  font-size: 17px;
+  user-select: none;
+}
+
+.quiz_box header .timer .timer_sec {
+  font-size: 18px;
+  font-weight: 500;
+  height: 30px;
+  width: 45px;
+  color: var(--back3);;
+  border-radius: 5px;
+  line-height: 30px;
+  text-align: center;
+  background: #343a40;
+  border: 1px solid #343a40;
+  user-select: none;
+}
+
+.quiz_box header .time_line {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: 3px;
+  background: var(--back);
+}
+
 section {
   padding: 25px 30px 20px 30px;
+  background: var(--back3);;
 }
 
-section .questions {
+section .que_text {
   font-size: 25px;
   font-weight: 600;
-  text-align: center;
 }
 
-section .optionsList .options {
+section .option_list {
   padding: 20px 0px;
-  display: block;
-  background: radial-gradient(circle, rgb(141, 101, 214) 0%, rgba(132, 41, 175, 0.604)100%);
-  border: 1px solid #eebcea;
-  border-radius: 8px;
-  box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0, rgba(60, 64, 67, 0.15) 0 2px 4px 3px;
-  margin: 20px;
-  flex: 0 auto;
+  display: block;   
 }
 
-section .optionsList .option:last-child {
+section .option_list .option {
+  background: var(--back);
+  border: 1px solid #fe8484;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-size: 17px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+section .option_list .option:last-child {
   margin-bottom: 0px;
 }
 
-section .optionsList .option:hover {
-  color: #004085;
-  background: #cce5ff;
-  border: 1px solid #b8daff;
+section .option_list .option:hover {
+  color: #b40000bb;
+  background: #ffccccc4;
+  border: 1px solid #ffb8b8c5;
 }
 
-section .optionsList .option.correct {
+section .option_list .option.correct {
   color: #155724;
   background: #d4edda;
   border: 1px solid #c3e6cb;
 }
 
-section .optionsList .option.incorrect {
+section .option_list .option.incorrect {
   color: #721c24;
   background: #f8d7da;
   border: 1px solid #f5c6cb;
+}
+
+section .option_list .option.disabled {
+  pointer-events: none;
+}
+
+section .option_list .option .icon {
+  height: 26px;
+  width: 26px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 13px;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  line-height: 24px;
+}
+
+.option_list .option .icon.tick {
+  color: #23903c;
+  border-color: #23903c;
+  background: #d4edda;
+}
+
+.option_list .option .icon.cross {
+  color: #a42834;
+  background: #f8d7da;
+  border-color: #a42834;
 }
 
 footer {
@@ -174,20 +270,20 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid lightgrey;
+  border-top: 1px solid white;
 }
 
-footer .totalQuestions span {
+footer .total_que span {
   display: flex;
   user-select: none;
 }
 
-footer .totalQuestions span p {
+footer .total_que span p {
   font-weight: 500;
   padding: 0 5px;
 }
 
-footer .totalQuestions span p:first-child {
+footer .total_que span p:first-child {
   padding-left: 0px;
 }
 
@@ -199,10 +295,10 @@ footer button {
   cursor: pointer;
   border: none;
   outline: none;
-  color: #fff;
+  color: var(--text);
   border-radius: 5px;
-  background: radial-gradient(circle, rgb(214, 101, 171) 0%, rgba(175, 41, 115, 0.604)100%);
-  border: 1px solid #eebcbc;
+  background: var(--back2);
+  border: 1px solid var(--back2);
   line-height: 10px;
   opacity: 0;
   pointer-events: none;
@@ -211,7 +307,7 @@ footer button {
 }
 
 footer button:hover {
-  background: #ca0266;
+  background: var(--back3);;
 }
 
 footer button.show {
@@ -220,8 +316,8 @@ footer button.show {
   transform: scale(1);
 }
 
-.resultsBox {
-  background: radial-gradient(circle, rgb(214, 101, 171) 0%, rgba(175, 41, 115, 0.604)100%);
+.result_box {
+  background: var(--back3);;
   border-radius: 5px;
   display: flex;
   padding: 25px 30px;
@@ -235,34 +331,35 @@ footer button.show {
   transition: all 0.3s ease;
 }
 
-.resultsBox .icon {
+.result_box .icon {
   font-size: 100px;
+  color: var(--back);
   margin-bottom: 10px;
 }
 
-.resultsBox .completeText {
+.result_box .complete_text {
   font-size: 20px;
   font-weight: 500;
 }
 
-.resultsBox .scoreText span {
+.result_box .score_text span {
   display: flex;
   margin: 10px 0;
   font-size: 18px;
   font-weight: 500;
 }
 
-.resultsBox .scoreText span p {
+.result_box .score_text span p {
   padding: 0 4px;
   font-weight: 600;
 }
 
-.resultsBox .buttons {
+.result_box .buttons {
   display: flex;
   margin: 20px 0;
 }
 
-.resultsBox .buttons button {
+.result_box .buttons button {
   margin: 0 10px;
   height: 45px;
   padding: 0 20px;
@@ -272,36 +369,25 @@ footer button.show {
   border: none;
   outline: none;
   border-radius: 5px;
-  border: 1px solid #eebcbc;
+  border: 1px solid var(--back3);
   transition: all 0.3s ease;
 }
 
 .buttons button.restart {
-  background: radial-gradient(circle, rgb(214, 101, 171) 0%, rgba(175, 41, 115, 0.604)100%);
-  border: 1px solid #eebcbc;
+  color: var(--text);
+  background: var(--back);
 }
 
 .buttons button.restart:hover {
-  color: rgb(187, 0, 178);
-  background: #ca0202;
+  background: var(--back2);;
 }
 
-.buttons button.cancel {
-  background: radial-gradient(circle, rgb(214, 101, 171) 0%, rgba(175, 41, 115, 0.604)100%);
-  border: 1px solid #eebcbc;
+.buttons button.quit {
+  color: var(--text);
+  background: var(--back);
 }
 
-.buttons button.cancel:hover {
-  color: rgb(187, 0, 178);
-  background: #ca0202;
-}
-
-.buttons button.btn {
-  background: radial-gradient(circle, rgb(214, 101, 171) 0%, rgba(175, 41, 115, 0.604)100%);
-  border: 1px solid #eebcbc;
-}
-
-.buttons button.btn:hover {
-  color: rgb(187, 0, 178);
-  background: #ca0202;
+.buttons button.quit:hover {
+  color: var(--text);
+  background: var(--back2);;
 }
