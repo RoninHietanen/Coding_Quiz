@@ -14,7 +14,7 @@
 
 body {
   font-family: 'Inconsolata', monospace;
-  background: var(--back);
+  background: rgb(235, 205, 150);
 }
 
 ::selection {
@@ -23,16 +23,16 @@ body {
 }
 
 .highscore .username{
-  color: var(--text);
+  color: black;
   padding: 10px;
   margin: 10px;
 }
 
 .title {
-  color: var(--text);
+  color: black;
   padding: 10px;
   margin: 10px;
-  background: var(--back2);
+  background: rgb(243, 192, 96);
 }
 
 .startBtn, .info_box, .quiz_box, .result_box {
