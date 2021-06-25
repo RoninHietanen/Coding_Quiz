@@ -4,21 +4,21 @@ var timeText = document.querySelector(".timer .timeLeft");
 var timeCount = document.querySelector('.timer .timeCount');
 var startBtn = document.querySelector('.startBtn button');
 var quizCard = document.querySelector('.quizCard');
-var submitBtn = document.querySelector('#user .btn button')
-var cancelBtn = document.querySelector('.cancel button');
-var restartBtn = document.querySelector('.restart button');
+var submitBtn = document.querySelector('#user .btn')
+var cancelBtn = document.querySelector('.cancel');
+var restartBtn = document.querySelector('.restart');
 var resultsBox = document.querySelector(".resultsBox");
-var nextBtn = document.querySelector('footer .nextBtn');
-var bottomQuesCounter = document.querySelector("footer .totalQuestions");
-var options = document.querySelector('.options');
+var nextBtn = document.querySelector('.nextBtn');
+var bottomQuesCounter = document.querySelector(".totalQuestions");
 var questions = document.querySelector('.questions');
+var options = document.querySelector('.options');
 
-startBtn.onclick = ()=>{
+startBtn.addEventListener('click', function() {
     quizCard.classList.add("activeQuiz");
     showQuestions(0);
     queCounter(1);
     startTimer(15);
-}
+})
 
 let timeValue =  15;
 let queCount = 0;
@@ -28,7 +28,7 @@ let counter;
 let widthValue = 0;
 
 
-restartBtn.onclick = ()=>{
+restartBtn.addEventListener('click', function() {
     quizCard.classList.add("activeQuiz");
     resultsBox.classList.remove("activeResult");
     timeValue = 15; 
@@ -42,13 +42,13 @@ restartBtn.onclick = ()=>{
     startTimer(timeValue);
     timeText.textContent = "Time Left";
     nextBtn.classList.remove("show");
-}
+})
 
-cancelBtn.onclick = ()=>{
+cancelBtn.addEventListener('click', function() {
     window.location.reload();
-}
+})
 
-nextBtn.onclick = ()=>{
+nextBtn.addEventListener('click', function() {
     if(queCount < questions.length - 1){
         queCount++;
         queNumber++;
@@ -63,9 +63,9 @@ nextBtn.onclick = ()=>{
         clearInterval(counter);
         showResult();
     }
-}
+})
 
-function showQuestions(index){
+function showQuestions(index) {
     let queTag = '<span>'+ questions[index].number + ". " + questions[index].question +'</span>';
     let optionsTag = '<div class="option"><span>'+ questions[index].options[0] +'</span></div>'
     + '<div class="option"><span>'+ questions[index].options[1] +'</span></div>'
@@ -82,7 +82,7 @@ function showQuestions(index){
 }
 
 
-function optionSelected(answer){
+function optionSelected(answer) {
     clearInterval(counter);
     let userAns = answer.textContent;
     let correctAns = questions[queCount].answer;
@@ -112,7 +112,7 @@ function optionSelected(answer){
     nextBtn.classList.add("show");
 }
 
-function showResult(){
+function showResult() {
     quizCard.classList.remove("activeQuiz");
     resultsBox.classList.add("activeResult");
     var scoreText = resultsBox.querySelector(".scoreText");
@@ -130,7 +130,7 @@ function showResult(){
     }
 }
 
-function startTimer(time){
+function startTimer(time) {
     counter = setInterval(timer, 1000);
     function timer(){
         timeCount.textContent = time;
@@ -159,7 +159,7 @@ function startTimer(time){
     }
 }
 
-function queCounter(index){
+function queCounter(index) {
     let totalQueCountTag = '<span><p>'+ index +'</p> of <p>'+ questions.length +'</p> Questions</span>';
     bottomQuesCounter.innerHTML = totalQueCountTag;
 }

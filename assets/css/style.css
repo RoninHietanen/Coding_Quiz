@@ -27,14 +27,14 @@ header {
   display: inline;
 }
 
-header .timer .timeLeft{
+header .timer .timeLeft {
   font-weight: bolder;
   font-size: 26px;
   user-select: none;
   margin-top: -20px;
 }
 
-header .timer .timeCount{
+header .timer .timeCount {
   font-size: 26px;
   font-weight: bolder;
   padding: 5px;
@@ -89,7 +89,7 @@ main {
 }
 
 .quizCard.activeQuiz,
-.resultsBox.activeResult{
+.resultsBox.activeResult {
   opacity: 1;
   z-index: 5;
   pointer-events: auto;
@@ -125,17 +125,17 @@ main {
   transition: all 0.3s ease;
 }
 
-section{
+section {
   padding: 25px 30px 20px 30px;
 }
 
-section .questions{
+section .questions {
   font-size: 25px;
   font-weight: 600;
   text-align: center;
 }
 
-section .optionsList .options{
+section .optionsList .options {
   padding: 20px 0px;
   display: block;
   background: radial-gradient(circle, rgb(141, 101, 214) 0%, rgba(132, 41, 175, 0.604)100%);
@@ -146,26 +146,29 @@ section .optionsList .options{
   flex: 0 auto;
 }
 
-section .optionsList .option:last-child{
+section .optionsList .option:last-child {
   margin-bottom: 0px;
 }
-section .optionsList .option:hover{
+
+section .optionsList .option:hover {
   color: #004085;
   background: #cce5ff;
   border: 1px solid #b8daff;
 }
-section .optionsList .option.correct{
+
+section .optionsList .option.correct {
   color: #155724;
   background: #d4edda;
   border: 1px solid #c3e6cb;
 }
-section .optionsList .option.incorrect{
+
+section .optionsList .option.incorrect {
   color: #721c24;
   background: #f8d7da;
   border: 1px solid #f5c6cb;
 }
 
-footer{
+footer {
   height: 60px;
   padding: 0 30px;
   display: flex;
@@ -174,19 +177,21 @@ footer{
   border-top: 1px solid lightgrey;
 }
 
-footer .totalQuestions span{
+footer .totalQuestions span {
   display: flex;
   user-select: none;
 }
-footer .totalQuestions span p{
+
+footer .totalQuestions span p {
   font-weight: 500;
   padding: 0 5px;
 }
-footer .totalQuestions span p:first-child{
+
+footer .totalQuestions span p:first-child {
   padding-left: 0px;
 }
 
-footer button{
+footer button {
   height: 40px;
   padding: 0 13px;
   font-size: 18px;
@@ -204,16 +209,18 @@ footer button{
   transform: scale(0.95);
   transition: all 0.3s ease;
 }
-footer button:hover{
+
+footer button:hover {
   background: #ca0266;
 }
-footer button.show{
+
+footer button.show {
   opacity: 1;
   pointer-events: auto;
   transform: scale(1);
 }
 
-.resultsBox{
+.resultsBox {
   background: radial-gradient(circle, rgb(214, 101, 171) 0%, rgba(175, 41, 115, 0.604)100%);
   border-radius: 5px;
   display: flex;
@@ -227,29 +234,35 @@ footer button.show{
   pointer-events: none;
   transition: all 0.3s ease;
 }
-.resultsBox .icon{
+
+.resultsBox .icon {
   font-size: 100px;
   margin-bottom: 10px;
 }
-.resultsBox .completeText{
+
+.resultsBox .completeText {
   font-size: 20px;
   font-weight: 500;
 }
-.resultsBox .scoreText span{
+
+.resultsBox .scoreText span {
   display: flex;
   margin: 10px 0;
   font-size: 18px;
   font-weight: 500;
 }
-.resultsBox .scoreText span p{
+
+.resultsBox .scoreText span p {
   padding: 0 4px;
   font-weight: 600;
 }
-.resultsBox .buttons{
+
+.resultsBox .buttons {
   display: flex;
   margin: 20px 0;
 }
-.resultsBox .buttons button{
+
+.resultsBox .buttons button {
   margin: 0 10px;
   height: 45px;
   padding: 0 20px;
@@ -263,28 +276,32 @@ footer button.show{
   transition: all 0.3s ease;
 }
 
-.buttons button.restart{
+.buttons button.restart {
   background: radial-gradient(circle, rgb(214, 101, 171) 0%, rgba(175, 41, 115, 0.604)100%);
   border: 1px solid #eebcbc;
 }
-.buttons button.restart:hover{
-  color: rgb(187, 0, 178);
-  background: #ca0202;
-}
-.buttons button.cancel{
-  background: radial-gradient(circle, rgb(214, 101, 171) 0%, rgba(175, 41, 115, 0.604)100%);
-  border: 1px solid #eebcbc;
-}
-.buttons button.cancel:hover{
+
+.buttons button.restart:hover {
   color: rgb(187, 0, 178);
   background: #ca0202;
 }
 
-.buttons button.btn{
+.buttons button.cancel {
   background: radial-gradient(circle, rgb(214, 101, 171) 0%, rgba(175, 41, 115, 0.604)100%);
   border: 1px solid #eebcbc;
 }
-.buttons button.btn:hover{
+
+.buttons button.cancel:hover {
+  color: rgb(187, 0, 178);
+  background: #ca0202;
+}
+
+.buttons button.btn {
+  background: radial-gradient(circle, rgb(214, 101, 171) 0%, rgba(175, 41, 115, 0.604)100%);
+  border: 1px solid #eebcbc;
+}
+
+.buttons button.btn:hover {
   color: rgb(187, 0, 178);
   background: #ca0202;
 }
