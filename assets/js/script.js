@@ -25,16 +25,19 @@ let widthValue = 0;
 let tickIconTag = '<div class="icon tick"><i class="fas fa-check"></i></div>';
 let crossIconTag = '<div class="icon cross"><i class="fas fa-times"></i></div>';
 
+/* Start button calls the highscore and username and retrieves the info box on click */
 startBtn.onclick = ()=> {
     info_box.classList.add("activeInfo");
     getHighScore();
     getUserName();
 }
 
-exitBtn.onclick = ()=> {
+/* Removes the info box */
+quitBtn.onclick = ()=> {
     info_box.classList.remove("activeInfo");
 }
 
+/* removes the info box, adds the quiz box, and called the questions, question counter, timer and timer line functions */
 continueBtn.onclick = ()=> {
     info_box.classList.remove("activeInfo");
     quiz_box.classList.add("activeQuiz");
@@ -44,6 +47,7 @@ continueBtn.onclick = ()=> {
     startTimerLine(0);
 }
 
+/* adds the quiz box, removes the results box, sets the values back to default and calls questions content same as above */
 restartQuiz.onclick = ()=> {
     quiz_box.classList.add("activeQuiz");
     result_box.classList.remove("activeResult");
@@ -62,10 +66,12 @@ restartQuiz.onclick = ()=> {
     nextBtn.classList.remove("show");
 }
 
+/* Reloads the window */
 quitQuiz.onclick = ()=> {
     window.location.reload();
 }
 
+/* This moves the question onto the next one in the lineup until all questions are answered then it shows the results */
 nextBtn.onclick = ()=> {
     if(queCount < questions.length - 1){
         queCount++;
@@ -85,6 +91,7 @@ nextBtn.onclick = ()=> {
     }
 }
 
+/* This calls the questions and options */
 function showQuestions(index) {
     var queText = document.querySelector(".que_text");
     
@@ -104,6 +111,7 @@ function showQuestions(index) {
     }
 }
 
+/* This checks whether the option selected was the correct question or not and disables the ability to select options once one has been chosen */
 function optionSelected(answer) {
     clearInterval(counter);
     clearInterval(counterLine);
@@ -131,6 +139,7 @@ function optionSelected(answer) {
     nextBtn.classList.add("show");
 }
 
+/* This shows the results box with the results and calls the function to set the high score and user name */
 function showResult() {
     info_box.classList.remove("activeInfo");
     quiz_box.classList.remove("activeQuiz");
@@ -148,6 +157,7 @@ function showResult() {
     setUserName()
 }
 
+/* This starts the timer and stops it once it has reached the end or a question has been selected */
 function startTimer(time) {
     counter = setInterval(timer, 1000);
     function timer(){
@@ -176,6 +186,7 @@ function startTimer(time) {
     }
 }
 
+/* This colours the line in time with the timer for an extra time keeping feature */
 function startTimerLine(time) {
     counterLine = setInterval(timer, 29);
     function timer(){
@@ -187,16 +198,19 @@ function startTimerLine(time) {
     }
 }
 
+/* This counts the questions and displays it in the footer of the box */
 function queCounter(index) {
     let totalQueCountTag = '<span><p>'+ index +'</p> of <p>'+ questions.length +'</p> Questions</span>';
     bottomQuesCounter.innerHTML = totalQueCountTag;
 }
 
+/* Sets the highscore */
 function setHighScore() {
     highScore.textContent = userScore;
     localStorage.setItem("highScore", userScore);
 }
 
+/* Gets the highscore if there is one from local storage */
 function getHighScore() {
     var storedHighScore = localStorage.getItem("highScore");
 
@@ -209,11 +223,13 @@ function getHighScore() {
     }
 }
 
+/* Sets the username */
 function setUserName() {
     storedUserName.textContent = input_textarea.value;
     localStorage.setItem('username', input_textarea.value);
 }
 
+/* Gets the username from the local storage */
 function getUserName() {
     var storedUserName = localStorage.getItem("username");
     

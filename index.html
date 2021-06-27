@@ -8,16 +8,18 @@
         <title>Coding Quiz</title>
     </head>
     <body>
-        
+        <!-- This is the "header" for the page -->
         <div>
             <h1 class="title">Highscore: 
                 <span class="userName"></span>
                 <span class="highscore"></span>
             </h1>
         </div>
-        
+
+        <!-- This button takes you to the info box before the quiz with a little bit of information about the quiz -->
         <div class="startBtn"><button>Start Quiz</button></div>
-        
+
+        <!-- This is the info box -->
         <div class="info_box">
             <div class="info-title"><span>How this Quiz works</span></div>
             <div class="info-list">
@@ -25,12 +27,15 @@
                 <div class="info">2. Once you select your answer and it can't be undone.</div>
                 <div class="info">4. You can't exit from the Quiz while you're playing.</div>
             </div>
+
+            <!-- These are the buttons to either take you back to the start or continue onto the quiz -->
            <div class="buttons">
-                <button class="quit">Exit Quiz</button>
+                <button class="quit">Quit Quiz</button>
                 <button class="restart">Continue</button>
             </div>
         </div>
         
+        <!-- This is the quiz box that holds the quiz timer, questions, and options -->
         <div class="quiz_box">
             <header>
                 <div class="title">Coding Quiz</div>
@@ -39,24 +44,30 @@
                     <div class="timer_sec">15</div>
                 </div>
                 <div class="time_line"></div>
-            </header> 
+            </header>
+
+            <!-- This is the question and options -->
             <section>
                 <div class="que_text"></div>
                 <div class="option_list"></div>
             </section>
             
+            <!-- This holds the question number and the button to go to the next question -->
             <footer>
                 <div class="total_que"></div>
                 <button class="next_btn">Next Question</button>
             </footer>
         </div> 
         
+        <!-- This is the box that holds your results the area to save your initials with your highscore and  to either replay the quiz or go to the start -->
         <div class="result_box">
             <div class="icon">
                 <i class="fas fa-crown"></i>
             </div>
             <div class="complete_text">You've completed the Quiz!</div>
             <div class="score_text"></div>
+
+            <!-- Text area and buttons -->
             <textarea class="content_input" placeholder="Your initials here"></textarea>
             <button class="save_button buttons">Save</button>
             <div class="buttons">
@@ -65,8 +76,10 @@
             </div>
         </div>
         
+        <!-- This holds the questions and options -->
         <script src="./assets/js/options.js"></script>
         
+        <!-- This holds the javascript -->
         <script src="./assets/js/script.js"></script>
     </body>
 </html>

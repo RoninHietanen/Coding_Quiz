@@ -1,3 +1,18 @@
+/* There is a uncommented copy of this code at the end */
+/* {
+    number: 0, -- this holds which number the question is so the code knows what order to show the questions
+    question: 'A coding question?', -- this is the question
+    answer: 'Option 1', -- this is the correct answer
+    options: [
+        'Option 1',
+        'Option 2',
+        'Option 3',             -- the options
+        'Option 4',
+        'Option 5/None of the Above'
+    ]
+}, */
+
+
 let questions = [
         {
         number: 1,
@@ -120,6 +135,8 @@ let questions = [
         ]
     },
 ]
+
+/* This is for when new questions need to be added so there is no need for replying the whole code */
 
 /* {
     number: 0,

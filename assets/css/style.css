@@ -1,3 +1,4 @@
+/* This is to keep track of the same colour */
 :root {
   --back: rgb(209, 89, 33);
   --back2: rgba(223, 96, 37, 0.863);
@@ -5,6 +6,7 @@
   --text: rgb(0, 0, 0);
 }
 
+/* Universal Selector */
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +14,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
+/* Element/Type Selector */
 body {
   font-family: 'Inconsolata', monospace;
   background: rgb(235, 205, 150);
@@ -22,21 +25,22 @@ body {
   background: var(--back);
 }
 
+/* This is used to style and position the highscore */
 .highscore .username{
   color: var(--text);
   padding: 10px;
   margin: 10px;
 }
 
+/* This is used to style and position the highscore */
 .title {
   color: var(--text);
   padding: 10px;
   margin: 10px;
   border-radius: 15px;
-  border: solid var(--back);
-  background: rgb(243, 192, 96);
 }
 
+/* Used to potion the area where the boxes for the info, quiz, and results will be held */
 .startBtn, .info_box, .quiz_box, .result_box {
   position: absolute;
   top: 50%;
@@ -52,6 +56,7 @@ body {
   transform: translate(-50%, -50%) scale(1);
 }
 
+/* Used to style the start button */
 .startBtn button {
   font-size: 25px;
   font-weight: 500;
@@ -64,6 +69,7 @@ body {
   cursor: pointer;
 }
 
+/* Used to style the info box and it's contents */
 .info_box {
   width: 540px;
   background: var(--back);
@@ -118,6 +124,7 @@ body {
   transition: all 0.3s ease;
 }
 
+/* Used to style the quiz box and it's contents */
 .quiz_box {
   width: 550px;
   background: var(--back3);;
@@ -220,18 +227,21 @@ section .option_list .option:last-child {
   margin-bottom: 0px;
 }
 
+/* Used to style what happens when the option is hovered over */
 section .option_list .option:hover {
   color: #b40000bb;
   background: #ffccccc4;
   border: 1px solid #ffb8b8c5;
 }
 
+/* Used to style what happens when the correct option is clicked */
 section .option_list .option.correct {
   color: #155724;
   background: #d4edda;
   border: 1px solid #c3e6cb;
 }
 
+/* Used to style what happens when the wrong option is selected */
 section .option_list .option.incorrect {
   color: #721c24;
   background: #f8d7da;
@@ -318,6 +328,7 @@ footer button.show {
   transform: scale(1);
 }
 
+/* Used to style the results box and it's content */
 .result_box {
   background: var(--back3);;
   border-radius: 5px;
@@ -380,6 +391,7 @@ footer button.show {
   background: var(--back);
 }
 
+/* Used to style the restart button when it's hovered over */
 .buttons button.restart:hover {
   background: var(--back2);;
 }
@@ -389,6 +401,7 @@ footer button.show {
   background: var(--back);
 }
 
+/* Used to style the quit button when it's hovered over */
 .buttons button.quit:hover {
   color: var(--text);
   background: var(--back2);;
@@ -412,6 +425,7 @@ footer button.show {
   background: var(--back);
 }
 
+/* Used to style the save button when it's hovered over */
 .buttons .save_button:hover {
   color: var(--text);
   background: var(--back2);;
