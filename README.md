@@ -14,3 +14,11 @@ Once you press start the page should take you to the quiz where you'll have 50 s
 ## This page was created using:
 - Visual Studio Code - HTML, CSS, and JavaScript.
 - GitHub Pages.
+
+## Screenshots of the Website:
+
+![Loading Page](/assets/screenshots/capture.PNG?raw=true "Optional Title")
+
+![Quiz Infor Page](/assets/screenshots/capture2.PNG?raw=true "Optional Title")
+
+![Quiz Page](/assets/screenshots/capture3.PNG?raw=true "Optional Title")
