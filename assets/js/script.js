@@ -8,12 +8,15 @@ var optionList = document.querySelector(".option_list");
 var timeLine = document.querySelector("header .time_line");
 var timeText = document.querySelector(".timer .time_left_txt");
 var timeCount = document.querySelector(".timer .timer_sec");
-var highScore = document.querySelector(".highscore")
+var highScore = document.querySelector(".highscore");
+var userName = document.querySelector(".userName");
 var restartQuiz = result_box.querySelector(".buttons .restart");
 var quitQuiz = result_box.querySelector(".buttons .quit");
 var nextBtn = document.querySelector("footer .next_btn");
 var bottomQuesCounter = document.querySelector("footer .total_que");
 var saveBtn = document.querySelector(".save_button");
+var storedHighScore = localStorage.getItem("highScore");
+var storedUserName = localStorage.getItem("user");
 
 let timeValue =  10;
 let queCount = 0;
@@ -203,31 +206,31 @@ function queCounter(index) {
     bottomQuesCounter.innerHTML = totalQueCountTag;
 }
 
-/* Sets the highscore */
+/* Sets the highscore and username */
 function setHighScore() {
-    highScore.textContent = userScore;
-    localStorage.setItem("highScore", userScore);
-}
-
-/* Gets the highscore if there is one from local storage */
-function getHighScore() {
-    var storedHighScore = localStorage.getItem("highScore");
-
     if (storedHighScore === null) {
-        userScore = 0;
+        highScore.textContent = userScore;
+        localStorage.setItem("highScore", userScore);
+        /* This saves the username entered */
+        saveBtn.onclick = ()=> {
+            localStorage.setItem("user", (saveBtn.val()));
+        }
     } else if (storedHighScore > userScore) {
         highScore.textContent = storedHighScore;
     } else {
         userScore = storedHighScore;
+        saveBtn.onclick = ()=> {
+            localStorage.setItem("user", (saveBtn.val()));
+        }
     }
 }
 
-/* This saves the username entered */
-saveBtn.onclick = ()=> {
-    localStorage.setItem("user", (saveBtn.val()));
-}
-
-/* This calls for the stored username */
-function getUsername() {
-    ("userName").append(localStorage.getItem("user"));
+/* Gets the highscore and username if there is one from local storage */
+function getHighScore() {
+    if (storedHighScore === null) {
+        userScore = 0;
+    } else if (storedHighScore > userScore) {
+        highScore.textContent = storedHighScore;
+        userName.textContent = storedUserName;
+    }
 }
