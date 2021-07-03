@@ -11,7 +11,7 @@
         <!-- This is the "header" for the page -->
         <div>
             <h1 class="title">Highscore: 
-                <span class="highscore"></span>
+                <span class="highscore userName"></span>
             </h1>
         </div>
 
@@ -65,7 +65,10 @@
             </div>
             <div class="complete_text">You've completed the Quiz!</div>
             <div class="score_text"></div>
-
+            <div class= "input-group col-10 form-group">
+                <textarea id="username" class="content_input" rows="2" style="resize:none" name="user"></textarea>
+                <button class="save_button"><span>Save</span></button>
+            </div>
             <!-- Buttons -->
             <div class="buttons">
                 <button class="restart">Replay Quiz</button>

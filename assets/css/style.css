@@ -420,13 +420,13 @@ footer button.show {
   background: var(--back2);
 }
 
-.buttons .save_button {
+.save_button {
   color: var(--text);
   background: var(--back);
 }
 
 /* Used to style the save button when it's hovered over */
-.buttons .save_button:hover {
+.save_button:hover {
   color: var(--text);
   background: var(--back2);;
 }

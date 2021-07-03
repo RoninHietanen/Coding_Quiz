@@ -13,6 +13,7 @@ var restartQuiz = result_box.querySelector(".buttons .restart");
 var quitQuiz = result_box.querySelector(".buttons .quit");
 var nextBtn = document.querySelector("footer .next_btn");
 var bottomQuesCounter = document.querySelector("footer .total_que");
+var saveBtn = document.querySelector(".save_button");
 
 let timeValue =  10;
 let queCount = 0;
@@ -28,6 +29,7 @@ let crossIconTag = '<div class="icon cross"><i class="fas fa-times"></i></div>';
 startBtn.onclick = ()=> {
     info_box.classList.add("activeInfo");
     getHighScore();
+    getUsername();
 }
 
 /* Removes the info box */
@@ -218,4 +220,14 @@ function getHighScore() {
     } else {
         userScore = storedHighScore;
     }
+}
+
+/* This saves the username entered */
+saveBtn.onclick = ()=> {
+    localStorage.setItem("user", (saveBtn.val()));
+}
+
+/* This calls for the stored username */
+function getUsername() {
+    ("userName").append(localStorage.getItem("user"));
 }
