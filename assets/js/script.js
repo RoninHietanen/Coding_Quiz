@@ -13,7 +13,6 @@ var restartQuiz = result_box.querySelector(".buttons .restart");
 var quitQuiz = result_box.querySelector(".buttons .quit");
 var nextBtn = document.querySelector("footer .next_btn");
 var bottomQuesCounter = document.querySelector("footer .total_que");
-var input_textarea = document.querySelector('.content_input');
 
 let timeValue =  10;
 let queCount = 0;
@@ -25,15 +24,14 @@ let widthValue = 0;
 let tickIconTag = '<div class="icon tick"><i class="fas fa-check"></i></div>';
 let crossIconTag = '<div class="icon cross"><i class="fas fa-times"></i></div>';
 
-/* Start button calls the highscore and username and retrieves the info box on click */
+/* Start button calls the highscore and retrieves the info box on click */
 startBtn.onclick = ()=> {
     info_box.classList.add("activeInfo");
     getHighScore();
-    getUserName();
 }
 
 /* Removes the info box */
-quitBtn.onclick = ()=> {
+quitQuiz.onclick = ()=> {
     info_box.classList.remove("activeInfo");
 }
 
@@ -154,7 +152,6 @@ function showResult() {
         scoreText.innerHTML = scoreTag;
     }
     setHighScore()
-    setUserName()
 }
 
 /* This starts the timer and stops it once it has reached the end or a question has been selected */
@@ -220,24 +217,5 @@ function getHighScore() {
         highScore.textContent = storedHighScore;
     } else {
         userScore = storedHighScore;
-    }
-}
-
-/* Sets the username */
-function setUserName() {
-    storedUserName.textContent = input_textarea.value;
-    localStorage.setItem('username', input_textarea.value);
-}
-
-/* Gets the username from the local storage */
-function getUserName() {
-    var storedUserName = localStorage.getItem("username");
-    
-    if (storedUserName === null) {
-        username = 0;
-    } else if (storedUserName > username) {
-        username.textContent = storedUserName;
-    } else {
-        username = storedUserName;
     }
 }

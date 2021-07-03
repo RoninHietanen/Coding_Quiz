@@ -26,7 +26,7 @@ body {
 }
 
 /* This is used to style and position the highscore */
-.highscore .username{
+.highscore {
   color: var(--text);
   padding: 10px;
   margin: 10px;
