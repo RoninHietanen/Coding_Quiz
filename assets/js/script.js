@@ -36,7 +36,7 @@ startBtn.onclick = ()=> {
 }
 
 /* Removes the info box */
-quitQuiz.onclick = ()=> {
+exitBtn.onclick = ()=> {
     info_box.classList.remove("activeInfo");
 }
 
