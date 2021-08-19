@@ -3,7 +3,7 @@ This is the README of my homework for the coding quiz for my bootcamp course.
 
 Below is the link to the live page:
 
--- https://roninhietanen.github.io/Coding_Quiz/ --
+-- [Coding Quiz](https://roninhietanen.github.io/Coding_Quiz/)  --
 
 # General Information:
 
