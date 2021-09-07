@@ -1,8 +1,8 @@
 /* This is to keep track of the same colour */
 :root {
-  --back: rgb(209, 89, 33);
-  --back2: rgba(223, 96, 37, 0.863);
-  --back3: rgb(233, 108, 86);
+  --back: rgb(255, 167, 126);
+  --back2: rgba(255, 134, 78, 0.863);
+  --back3: rgb(230, 129, 112);
   --text: rgb(0, 0, 0);
 }
 
